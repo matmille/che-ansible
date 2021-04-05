@@ -1,0 +1,26 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: che-ansible-demo-
+projects:
+  - name: edge
+    source:
+      location: 'https://github.com/matmille/edge-workshop'
+      type: git
+
+components:
+  - alias: ansible
+    type: dockerimage
+    image: quay.io/sunix/che-remote-plugin-ansible
+    memoryLimit: 512M
+    mountSources: true
+    args:
+      - tail
+      - '-f'
+      - /dev/null
+    env:
+      - name: HOME
+        value: /projects/
+
+  - alias: ansible-plugin
+    type: chePlugin
+    reference: https://raw.githubusercontent.com/sunix/che-ansible/master/plugin/meta.yaml
