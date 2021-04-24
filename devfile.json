@@ -26,8 +26,16 @@
          ],
          "env": [
             {
+               "name": "ANSIBLE_CONFIG",
+               "value": "/projects/edge/.conf/ansible.cfg"
+            },
+            {
                "name": "HOME",
                "value": "/projects/"
+            },
+            {
+               "name": "PS1",
+               "value": "edge-workshop$ "
             }
          ]
       },
