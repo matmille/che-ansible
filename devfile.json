@@ -32,10 +32,6 @@
             {
                "name": "HOME",
                "value": "/projects/"
-            },
-            {
-               "name": "PS1",
-               "value": "edge-workshop$ "
             }
          ]
       },
