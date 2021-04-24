@@ -32,24 +32,6 @@
          ]
       },
       {
-         "alias": "pcp",
-         "type": "dockerimage",
-         "image": "registry.redhat.io/rhel8/pcp",
-         "memoryLimit": "512M",
-         "mountSources": true,
-         "args": [
-            "tail",
-            "-f",
-            "/dev/null"
-         ],
-         "env": [
-            {
-               "name": "HOME",
-               "value": "/projects/"
-            }
-         ]
-      },
-      {
          "alias": "ansible-plugin",
          "type": "chePlugin",
          "reference": "https://raw.githubusercontent.com/sunix/che-ansible/master/plugin/meta.yaml"
