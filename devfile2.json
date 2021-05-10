@@ -56,10 +56,5 @@
         "runOnStartup": true
       }
     }
-  ],
-  "events": {
-    "preStart": [
-      "fileperm"
-    ]
-  }
+  ]
 }
