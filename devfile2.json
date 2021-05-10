@@ -24,25 +24,6 @@
         "-f",
         "/dev/null"
       ],
-      "spec": {
-        "initContainers": [
-          {
-            "name": "fileperms",
-            "image": "registry.access.redhat.com/ubi8/ubi-minimal:latest",
-            "command": [
-              "/bin/sh",
-              "-c",
-              "mkdir -m 0700 /projects/.ssh;cp /projects/.conf/edge /projects/.ssh/id_rsa;chmod 0600 /projects/.ssh/id_rsa"
-            ],
-            "volumeMounts": [
-              {
-                "mountPath": "/projects",
-                "name": "projects"
-              }
-            ]
-          }
-        ]
-      },
       "env": [
         {
           "name": "ANSIBLE_CONFIG",
@@ -59,5 +40,20 @@
       "type": "chePlugin",
       "reference": "https://raw.githubusercontent.com/sunix/che-ansible/master/plugin/meta.yaml"
     }
-  ]
+  ],
+  "commands": [
+    {
+      "exec": {
+        "id": "fileperm",
+        "commandLine": "mkdir -m 0700 /projects/.ssh;cp /projects/.conf/edge /projects/.ssh/id_rsa;chmod 0600 /projects/.ssh/id_rsa",
+        "component": "ansible",
+        "workingDir": "/"
+      }
+    }
+  ],
+  "events": {
+    "preStart": [
+      "fileperm"
+    ]
+  }
 }
