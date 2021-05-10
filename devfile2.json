@@ -50,7 +50,7 @@
           "component": "ansible",
           "command": "mkdir -m 0700 /projects/.ssh;cp /projects/.conf/edge /projects/.ssh/id_rsa;chmod 0600 /projects/.ssh/id_rsa",
           "workdir": "/",
-          "runOnStartup": true
+          "runOnStartup": "true"
         }
       ]
     }
